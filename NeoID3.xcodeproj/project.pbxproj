@@ -18,6 +18,13 @@
 		B55382FB19230F7500CC9732 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55382DA19230F7400CC9732 /* Cocoa.framework */; };
 		B553830319230F7500CC9732 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B553830119230F7500CC9732 /* InfoPlist.strings */; };
 		B553830519230F7500CC9732 /* NeoID3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B553830419230F7500CC9732 /* NeoID3Tests.m */; };
+		B55383161923305900CC9732 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55383151923305900CC9732 /* AudioController.m */; };
+		B553831D192359C800CC9732 /* TagLibWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B553831C192359C800CC9732 /* TagLibWrapper.m */; };
+		B55679391923869B00A9C11D /* libuchardet.0.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B55679381923869B00A9C11D /* libuchardet.0.0.0.dylib */; };
+		B556793B192386DA00A9C11D /* libuchardet.0.0.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B55679381923869B00A9C11D /* libuchardet.0.0.0.dylib */; };
+		B556793E1923A91400A9C11D /* libtag.1.14.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B556793D1923A91400A9C11D /* libtag.1.14.0.dylib */; };
+		B5DF82D31924763C000E43A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DF82D21924763C000E43A2 /* ViewController.m */; };
+		B5DF82D41924AF9A000E43A2 /* libtag.1.14.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B556793D1923A91400A9C11D /* libtag.1.14.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +36,20 @@
 			remoteInfo = NeoID3;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B556793A192386C800A9C11D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B5DF82D41924AF9A000E43A2 /* libtag.1.14.0.dylib in CopyFiles */,
+				B556793B192386DA00A9C11D /* libuchardet.0.0.0.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B55382D719230F7400CC9732 /* NeoID3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoID3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +71,14 @@
 		B553830019230F7500CC9732 /* NeoID3Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NeoID3Tests-Info.plist"; sourceTree = "<group>"; };
 		B553830219230F7500CC9732 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B553830419230F7500CC9732 /* NeoID3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeoID3Tests.m; sourceTree = "<group>"; };
+		B55383141923305900CC9732 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioController.h; path = Class/Controller/AudioController.h; sourceTree = "<group>"; };
+		B55383151923305900CC9732 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioController.m; path = Class/Controller/AudioController.m; sourceTree = "<group>"; };
+		B553831B192359C800CC9732 /* TagLibWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagLibWrapper.h; path = Class/Model/TagLibWrapper.h; sourceTree = "<group>"; };
+		B553831C192359C800CC9732 /* TagLibWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagLibWrapper.m; path = Class/Model/TagLibWrapper.m; sourceTree = "<group>"; };
+		B55679381923869B00A9C11D /* libuchardet.0.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libuchardet.0.0.0.dylib; path = /usr/local/Cellar/uchardet/0.0.1/lib/libuchardet.0.0.0.dylib; sourceTree = "<absolute>"; };
+		B556793D1923A91400A9C11D /* libtag.1.14.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtag.1.14.0.dylib; path = /usr/local/Cellar/taglib/1.9.1/lib/libtag.1.14.0.dylib; sourceTree = "<absolute>"; };
+		B5DF82D11924763C000E43A2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Class/Controller/ViewController.h; sourceTree = "<group>"; };
+		B5DF82D21924763C000E43A2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Class/Controller/ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55679391923869B00A9C11D /* libuchardet.0.0.0.dylib in Frameworks */,
+				B556793E1923A91400A9C11D /* libtag.1.14.0.dylib in Frameworks */,
 				B55382DB19230F7400CC9732 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +126,8 @@
 		B55382D919230F7400CC9732 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B556793D1923A91400A9C11D /* libtag.1.14.0.dylib */,
+				B55679381923869B00A9C11D /* libuchardet.0.0.0.dylib */,
 				B55382DA19230F7400CC9732 /* Cocoa.framework */,
 				B55382F919230F7500CC9732 /* XCTest.framework */,
 				B55382DC19230F7400CC9732 /* Other Frameworks */,
@@ -115,6 +148,8 @@
 		B55382E019230F7400CC9732 /* NeoID3 */ = {
 			isa = PBXGroup;
 			children = (
+				B553831319232E1A00CC9732 /* Model */,
+				B553831219232E0800CC9732 /* Controller */,
 				B55382EC19230F7400CC9732 /* AppDelegate.h */,
 				B55382ED19230F7400CC9732 /* AppDelegate.m */,
 				B55382EF19230F7400CC9732 /* MainMenu.xib */,
@@ -154,6 +189,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B553831219232E0800CC9732 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B55383141923305900CC9732 /* AudioController.h */,
+				B55383151923305900CC9732 /* AudioController.m */,
+				B5DF82D11924763C000E43A2 /* ViewController.h */,
+				B5DF82D21924763C000E43A2 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B553831319232E1A00CC9732 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B553831B192359C800CC9732 /* TagLibWrapper.h */,
+				B553831C192359C800CC9732 /* TagLibWrapper.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +219,7 @@
 				B55382D319230F7400CC9732 /* Sources */,
 				B55382D419230F7400CC9732 /* Frameworks */,
 				B55382D519230F7400CC9732 /* Resources */,
+				B556793A192386C800A9C11D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -252,8 +308,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55383161923305900CC9732 /* AudioController.m in Sources */,
 				B55382EE19230F7400CC9732 /* AppDelegate.m in Sources */,
+				B553831D192359C800CC9732 /* TagLibWrapper.m in Sources */,
 				B55382E719230F7400CC9732 /* main.m in Sources */,
+				B5DF82D31924763C000E43A2 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +373,7 @@
 		B553830619230F7500CC9732 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -328,9 +387,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -343,16 +404,19 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_DYLIB_INSTALL_NAME = "";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Debug;
 		};
 		B553830719230F7500CC9732 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -368,16 +432,21 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_DYLIB_INSTALL_NAME = "";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Release;
 		};
@@ -386,9 +455,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NeoID3/NeoID3-Prefix.pch";
 				INFOPLIST_FILE = "NeoID3/NeoID3-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/usr/local/Cellar/taglib/1.9.1/lib,
+					/usr/local/Cellar/uchardet/0.0.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -399,9 +478,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NeoID3/NeoID3-Prefix.pch";
 				INFOPLIST_FILE = "NeoID3/NeoID3-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/usr/local/Cellar/taglib/1.9.1/lib,
+					/usr/local/Cellar/uchardet/0.0.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -466,6 +555,7 @@
 				B553830A19230F7500CC9732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B553830B19230F7500CC9732 /* Build configuration list for PBXNativeTarget "NeoID3Tests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +564,7 @@
 				B553830D19230F7500CC9732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
