@@ -10,13 +10,17 @@
 #import "AudioController.h"
 
 @interface ViewController : NSViewController {
-	AudioController *ac;
+//	AudioController *ac;
+//	TagLibWrapper *selectedWrapper;
 }
 
 @property AudioController *ac;
+@property TagLibWrapper *selectedWrapper;
+
 @property (weak) IBOutlet NSTableView *audioTable;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 @property (weak) IBOutlet NSArrayController *arrayController;
+@property (unsafe_unretained) IBOutlet NSPanel *editorPanel;
 
 - (id) init;
 
@@ -25,5 +29,7 @@
 - (IBAction)removeFiles:(id)sender;
 - (IBAction)saveFiles:(id)sender;
 - (IBAction)testAction:(id)sender;
+
+- (void)editTags;
 
 @end

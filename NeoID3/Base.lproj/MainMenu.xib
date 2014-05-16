@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
@@ -15,9 +15,11 @@
             <connections>
                 <outlet property="arrayController" destination="hGy-GP-U2k" id="EyC-fd-0w9"/>
                 <outlet property="audioTable" destination="7iq-sg-hlg" id="TfT-a6-fGn"/>
+                <outlet property="editorPanel" destination="dz6-06-XSi" id="XWs-9e-axf"/>
                 <outlet property="progressIndicator" destination="nqF-3r-0Z9" id="01z-Mh-EIR"/>
             </connections>
         </customObject>
+        <customObject id="uaj-bG-NPt" customClass="AudioController"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -120,6 +122,21 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="WRV-NI-Exz"/>
+                            <menuItem title="Cut" keyEquivalent="x" id="nTv-Hf-WRF">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="yxm-N7-F1k"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copy" keyEquivalent="c" id="Vht-2j-ufn">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="e4V-E1-4Md"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="7d8-np-Xs1">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="K0Q-te-x1l"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Delete" id="pa3-QI-u2k">
                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
@@ -493,30 +510,33 @@ CA
                             <rect key="frame" x="0.0" y="17" width="600" height="265"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" autosaveColumns="NO" headerView="cOf-IP-Nq2" id="7iq-sg-hlg">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" autosaveColumns="NO" headerView="cOf-IP-Nq2" id="7iq-sg-hlg">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="265"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn editable="NO" width="65.1875" minWidth="10" maxWidth="3.4028234663852886e+38" id="Nuv-fh-tsr">
+                                        <tableColumn editable="NO" width="81.24609375" minWidth="10" maxWidth="3.4028234663852886e+38" id="Nuv-fh-tsr">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Encoding">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="4Ps-GG-kUo">
+                                            <comboBoxCell key="dataCell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" drawsBackground="YES" buttonBordered="NO" completes="NO" numberOfVisibleItems="5" id="2Qr-Yk-EGw">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <connections>
+                                                    <binding destination="uaj-bG-NPt" name="content" keyPath="allowedEncodings" id="vXd-69-txp"/>
+                                                </connections>
+                                            </comboBoxCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.encoding" id="7hc-6a-p4M"/>
+                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.encoding" id="fDU-Y1-FRN"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn editable="NO" width="116.38671875" minWidth="40" maxWidth="1000" id="qI1-iD-y1q">
+                                        <tableColumn editable="NO" width="96.1171875" minWidth="40" maxWidth="1000" id="qI1-iD-y1q">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Title">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -529,10 +549,14 @@ CA
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.title" id="IY6-o0-NXx"/>
+                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.title" id="R3o-mi-CIT">
+                                                    <dictionary key="options">
+                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn editable="NO" width="120.15625" minWidth="40" maxWidth="1000" id="Vlm-5z-e3J">
+                                        <tableColumn editable="NO" width="105.0859375" minWidth="40" maxWidth="1000" id="Vlm-5z-e3J">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Artist">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -545,10 +569,14 @@ CA
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.artist" id="Qo9-It-Xs1"/>
+                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.artist" id="cIb-r2-yBT">
+                                                    <dictionary key="options">
+                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn editable="NO" width="287.40625" minWidth="10" maxWidth="3.4028234663852886e+38" id="ib6-yd-yLF">
+                                        <tableColumn editable="NO" width="306" minWidth="10" maxWidth="3.4028234663852886e+38" id="ib6-yd-yLF">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Album">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -561,10 +589,22 @@ CA
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.album" id="MkO-iL-2zs"/>
+                                                <binding destination="hGy-GP-U2k" name="value" keyPath="arrangedObjects.album" id="bUu-e4-HYx">
+                                                    <dictionary key="options">
+                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <binding destination="hGy-GP-U2k" name="content" keyPath="arrangedObjects" id="STQ-cL-8Hb"/>
+                                        <binding destination="bRY-do-bFi" name="doubleClickTarget" keyPath="self" id="Ihx-fI-Inr">
+                                            <dictionary key="options">
+                                                <string key="NSSelectorName">editTags</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -634,11 +674,192 @@ CA
                     <toolbarItem reference="ojG-eh-qGN"/>
                     <toolbarItem reference="vsw-3z-rKw"/>
                     <toolbarItem reference="27V-hU-JJC"/>
-                    <toolbarItem reference="Z1s-Ma-Ucz"/>
                     <toolbarItem reference="ojG-eh-qGN"/>
                     <toolbarItem reference="QVo-wl-yRe"/>
                 </defaultToolbarItems>
             </toolbar>
+        </window>
+        <window title="ID3 Editor" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="dz6-06-XSi" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" HUD="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="708" y="253" width="280" height="300"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <view key="contentView" id="iQP-ki-fEl">
+                <rect key="frame" x="0.0" y="0.0" width="280" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYW-5O-6t3">
+                        <rect key="frame" x="18" y="232" width="56" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Title:" id="8jt-pu-kdL">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7G-ah-qQ5">
+                        <rect key="frame" x="80" y="229" width="180" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="OuT-r3-kKF">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="eZR-8a-hB1" name="value" keyPath="selection.title" id="irb-bQ-3TY"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZB-OG-TkJ">
+                        <rect key="frame" x="18" y="264" width="56" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Encode:" id="zjS-GN-iCA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kXE-AV-n3a">
+                        <rect key="frame" x="18" y="200" width="56" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Artist:" id="LQ0-me-eJA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-gH-QCm">
+                        <rect key="frame" x="80" y="197" width="180" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="fxH-7v-aPY">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="eZR-8a-hB1" name="value" keyPath="selection.artist" id="W2D-C5-57b"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRv-TZ-aXg">
+                        <rect key="frame" x="80" y="165" width="180" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Om7-jp-DoC">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="eZR-8a-hB1" name="value" keyPath="selection.album" id="M0n-v3-G4l"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LhP-aX-cEd">
+                        <rect key="frame" x="18" y="168" width="56" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Album:" id="vT3-nw-f4Q">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="we0-ZR-rqC">
+                        <rect key="frame" x="18" y="136" width="56" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Track:" id="4Tz-el-vEh">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOK-06-QMm">
+                        <rect key="frame" x="148" y="136" width="56" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Year:" id="ZHN-ca-6wg">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tA3-gt-SfQ">
+                        <rect key="frame" x="18" y="108" width="70" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Comment:" id="UFl-S6-5dS">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pci-Oq-5WN">
+                        <rect key="frame" x="80" y="258" width="183" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="vwo-9M-Pnl">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </comboBoxCell>
+                        <connections>
+                            <binding destination="uaj-bG-NPt" name="content" keyPath="allowedEncodings" id="bcO-Zb-ncQ"/>
+                            <binding destination="eZR-8a-hB1" name="value" keyPath="selection.encoding" previousBinding="bcO-Zb-ncQ" id="5YP-Jm-NDQ"/>
+                        </connections>
+                    </comboBox>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gib-JX-mDp">
+                        <rect key="frame" x="210" y="133" width="50" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="EEb-CV-0VD">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="eZR-8a-hB1" name="value" keyPath="selection.year" id="qIW-OL-Dvv"/>
+                            <outlet property="formatter" destination="lpq-5M-UUl" id="cJe-ps-TFX"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akn-hc-eg4">
+                        <rect key="frame" x="80" y="133" width="50" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="vGL-N5-cdS">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="eZR-8a-hB1" name="value" keyPath="selection.track" id="4kd-8i-mWt"/>
+                            <outlet property="formatter" destination="lpq-5M-UUl" id="9lF-cC-cP5"/>
+                        </connections>
+                    </textField>
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRj-H3-QNb">
+                        <rect key="frame" x="20" y="20" width="240" height="80"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" ambiguous="YES" misplaced="YES" copiesOnScroll="NO" id="INw-Yh-36I">
+                            <rect key="frame" x="1" y="1" width="238" height="78"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView ambiguous="YES" importsGraphics="NO" richText="NO" findStyle="panel" allowsUndo="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="9Qw-O4-Twf">
+                                    <rect key="frame" x="0.0" y="0.0" width="238" height="78"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="238" height="78"/>
+                                    <size key="maxSize" width="238" height="10000000"/>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="238" height="78"/>
+                                    <size key="maxSize" width="238" height="10000000"/>
+                                    <connections>
+                                        <binding destination="eZR-8a-hB1" name="value" keyPath="selection.comment" id="PsB-0i-aDz"/>
+                                    </connections>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="ACm-Ar-XQK">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="nef-4H-MBd">
+                            <rect key="frame" x="224" y="1" width="15" height="78"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+            </view>
         </window>
         <arrayController objectClassName="TagLibWrapper" preservesSelection="NO" selectsInsertedObjects="NO" automaticallyRearrangesObjects="YES" id="hGy-GP-U2k">
             <declaredKeys>
@@ -651,6 +872,25 @@ CA
                 <binding destination="bRY-do-bFi" name="contentArray" keyPath="ac.audios" id="nsz-e4-GjW"/>
             </connections>
         </arrayController>
+        <objectController objectClassName="TagLibWrapper" id="eZR-8a-hB1">
+            <declaredKeys>
+                <string>encoding</string>
+                <string>title</string>
+                <string>artist</string>
+                <string>album</string>
+                <string>track</string>
+                <string>year</string>
+                <string>comment</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="bRY-do-bFi" name="contentObject" keyPath="self.selectedWrapper" id="NEd-2x-tUM"/>
+            </connections>
+        </objectController>
+        <numberFormatter formatterBehavior="default10_4" localizesFormat="NO" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="lpq-5M-UUl">
+            <metadata>
+                <real key="inspectorSampleValue" value="1"/>
+            </metadata>
+        </numberFormatter>
         <userDefaultsController representsSharedInstance="YES" id="oy9-V6-t75"/>
     </objects>
     <resources>

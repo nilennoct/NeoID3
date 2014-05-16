@@ -11,16 +11,15 @@
 #import <uchardet/uchardet.h>
 #import <taglib/fileref.h>
 #import <taglib/tag.h>
-using namespace TagLib;
 
 @interface TagLibWrapper : NSObject {
-	FileRef *file;
-	Tag *tag;
+	TagLib::FileRef *file;
+	TagLib::Tag *tag;
 	NSString *filepath;
 	NSString *originEncoding;
 }
 
-@property (nonatomic) NSString *encoding;
+@property (retain) NSString *encoding;
 @property (retain) NSString *title;
 @property (retain) NSString *artist;
 @property (retain) NSString *album;

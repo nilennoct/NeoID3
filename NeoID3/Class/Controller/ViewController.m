@@ -10,11 +10,9 @@
 
 @implementation ViewController
 
-@synthesize ac;
-
 - (id) init {
 	if (self = [super init]) {
-		ac = [AudioController getInstance];
+		self.ac = [AudioController getInstance];
 	}
 	
 	return self;
@@ -79,12 +77,11 @@
 }
 
 - (IBAction)removeFiles:(id)sender {
-	NSIndexSet *selectedAudios = [[self audioTable] selectedRowIndexes];
-	
-	if ([selectedAudios count] == 0) {
+	if ([[self audioTable] numberOfSelectedRows] == 0) {
 		return;
 	}
 	
+	NSIndexSet *selectedAudios = [[self audioTable] selectedRowIndexes];
 	[[self arrayController] removeObjectsAtArrangedObjectIndexes:selectedAudios];
 }
 
@@ -98,7 +95,7 @@
 //	[progressIndicator startAnimation:self];
 	int i = 0;
 	for (TagLibWrapper *wrapper in audios) {
-//		[wrapper saveTags:YES];
+		[wrapper saveTags:YES];
 		NSLog(@"%@ saved.%d", [wrapper title], i++);
 //		sleep(1);
 		[[self arrayController] removeObject:wrapper];
@@ -109,9 +106,14 @@
 - (IBAction)testAction:(id)sender {
 	NSArray *seleted = [[self arrayController] selectedObjects];
 	if ([seleted count] == 0) {
-		return;
+//		return;
 	}
-	
+	NSInteger selectedRowNumber = [[self audioTable] selectedRow];
+	NSTableRowView *selectedRow = [[self audioTable] rowViewAtRow:selectedRowNumber makeIfNecessary:YES];
+	NSLog(@"%ld, %@", selectedRowNumber, [[selectedRow viewAtColumn:0] objectValue]);
+	[[self audioTable] enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
+//		NSLog(@"%ld, %@", row, [[[rowView viewAtColumn:0] dataCell] stringValue]);
+	}];
 	if ([[seleted[0] encoding] isEqualToString:@"UTF-8"]) {
 		[seleted[0] setEncoding:@"gb18030"];
 	}
@@ -119,6 +121,16 @@
 		[seleted[0] setEncoding:@"UTF-8"];
 	}
 //	[self arrayController] 
+}
+
+- (void)editTags {
+	NSInteger selectedIndex = [self.audioTable selectedRow];
+	if (selectedIndex != -1) {
+		if ( ! [self.editorPanel isVisible]) {
+			[self.editorPanel makeKeyAndOrderFront:self];
+		}
+		self.selectedWrapper = [[self.ac audios] objectAtIndex:selectedIndex];
+	}
 }
 
 @end

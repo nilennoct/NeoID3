@@ -6,10 +6,7 @@
 //  Copyright (c) 2014 Neo He. All rights reserved.
 //
 
-#import <taglib/fileref.h>
-#import <taglib/tag.h>
 #import "TagLibWrapper.h"
-using namespace TagLib;
 
 @interface TagLibWrapper ()
 
@@ -17,6 +14,7 @@ using namespace TagLib;
 
 @implementation TagLibWrapper
 
+@synthesize encoding = _encoding;
 
 + (id) wrapperWithPath:(NSString *)path {
 	return [[self alloc] initWithPath:path];
@@ -25,7 +23,7 @@ using namespace TagLib;
 - (id) initWithPath:(NSString *)path {
 	if (self = [super init]) {
 		filepath = path;
-		file = new FileRef([filepath UTF8String]);
+		file = new TagLib::FileRef([filepath UTF8String]);
 		tag = file->tag();
 		
 		originEncoding = self.encoding = [self detectEncoding];
@@ -40,11 +38,11 @@ using namespace TagLib;
 }
 
 - (NSString *) detectEncoding {
-	String title = tag->title();
-	String artist = tag->artist();
-	String album = tag->album();
+	TagLib::String title = tag->title();
+	TagLib::String artist = tag->artist();
+	TagLib::String album = tag->album();
 	
-	String detectString = title + title + title + artist + artist + artist + album + album;
+	TagLib::String detectString = title + title + title + artist + artist + artist + album + album;
 	
 	Boolean isUTF8 = !detectString.isNull() && !detectString.isEmpty() && !detectString.isAscii() && !detectString.isLatin1();
 	
@@ -84,11 +82,11 @@ using namespace TagLib;
 
 - (void) saveTags:(BOOL)forceSave {
 	if (forceSave || [originEncoding isEqualToString:self.encoding]) {
-		tag->setTitle(String([self.title UTF8String], String::UTF8));
-		tag->setArtist(String([self.artist UTF8String], String::UTF8));
-		tag->setAlbum(String([self.album UTF8String], String::UTF8));
-		tag->setGenre(String([self.genre UTF8String], String::UTF8));
-		tag->setComment(String([self.comment UTF8String], String::UTF8));
+		tag->setTitle(TagLib::String([self.title UTF8String], TagLib::String::UTF8));
+		tag->setArtist(TagLib::String([self.artist UTF8String], TagLib::String::UTF8));
+		tag->setAlbum(TagLib::String([self.album UTF8String], TagLib::String::UTF8));
+		tag->setGenre(TagLib::String([self.genre UTF8String], TagLib::String::UTF8));
+		tag->setComment(TagLib::String([self.comment UTF8String], TagLib::String::UTF8));
 		tag->setYear([self.year intValue]);
 		tag->setTrack([self.track intValue]);
 		
@@ -100,10 +98,18 @@ using namespace TagLib;
 	return  filepath;
 }
 
+- (NSString *) encoding {
+	@synchronized (self) {
+		return _encoding;
+	}
+}
+
 - (void) setEncoding:(NSString *)encoding {
-	if ( ! [self.encoding isEqualToString:encoding]) {
-		_encoding = encoding;
-		[self loadTags];
+	@synchronized (self) {
+		if ( ! [self.encoding isEqualToString:encoding]) {
+			_encoding = encoding;
+			[self loadTags];
+		}
 	}
 }
 

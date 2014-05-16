@@ -10,8 +10,8 @@
 
 @implementation AudioController
 
-@synthesize audios;
-@synthesize allowedEncodings;
+//@synthesize audios;
+//@synthesize allowedEncodings;
 
 + (AudioController *) getInstance {
 	static AudioController *singleton = nil;
@@ -27,8 +27,8 @@
 
 - (id) init {
 	if (self = [super init]) {
-		audios = [NSMutableArray arrayWithCapacity:10];
-		allowedEncodings = [NSArray arrayWithObjects:@"UTF-8", @"gb18030", nil];
+		self.audios = [NSMutableArray arrayWithCapacity:10];
+		self.allowedEncodings = [NSArray arrayWithObjects:@"UTF-8", @"gb18030", nil];
 	}
 	
 	return self;

@@ -11,8 +11,8 @@
 #import "TagLibWrapper.h"
 
 @interface AudioController : NSArrayController {
-	NSMutableArray *audios;
-	NSArray *allowedEncodings;
+//	NSMutableArray *audios;
+//	NSArray *allowedEncodings;
 }
 
 @property NSMutableArray *audios;
