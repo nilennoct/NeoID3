@@ -16,6 +16,14 @@ In ID3v2, tags can be stored in several encodings, such as ISO-8859-1 and UTF-8,
  - Convert multiple files;
  - Edit MP3 ID3 tag.
 
+## Support encodings
+
+- UTF-8
+- GB18030
+- BIG5
+- SHIFT_JIS
+- EUC-KR
+
 ## Build
 
 To build this project, you need install TagLib and uchardet at first.
@@ -50,6 +58,14 @@ ID3v2的标签可使用多种不同的编码，比如 ISO-8859-1、UTF-8等。�
  - 自动检测标签编码 (由 [uchardet](https://code.google.com/p/uchardet/ "uchardet") 提供支持)；
  - 批量转换；
  - 编辑 MP3 ID3 标签。
+
+## 支持编码
+
+- UTF-8
+- GB18030
+- BIG5
+- SHIFT_JIS
+- EUC-KR
 
 ## 生成（Build）
 
