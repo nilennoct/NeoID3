@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AudioController.h"
 
-@interface ViewController : NSViewController {
-//	AudioController *ac;
-//	TagLibWrapper *selectedWrapper;
-}
+@interface ViewController : NSViewController
 
 @property AudioController *ac;
 @property TagLibWrapper *selectedWrapper;
@@ -21,6 +18,7 @@
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 @property (weak) IBOutlet NSArrayController *arrayController;
 @property (unsafe_unretained) IBOutlet NSPanel *editorPanel;
+@property (unsafe_unretained) IBOutlet NSWindow *mainWindow;
 
 - (id) init;
 
@@ -28,7 +26,8 @@
 - (IBAction)openFolders:(id)sender;
 - (IBAction)removeFiles:(id)sender;
 - (IBAction)saveFiles:(id)sender;
-- (IBAction)testAction:(id)sender;
+- (IBAction)clearFiles:(id)sender;
+- (IBAction)showHelp:(id)sender;
 
 - (void)editTags;
 

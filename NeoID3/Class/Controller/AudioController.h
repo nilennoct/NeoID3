@@ -10,13 +10,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import "TagLibWrapper.h"
 
-@interface AudioController : NSArrayController {
-//	NSMutableArray *audios;
-//	NSArray *allowedEncodings;
-}
+@interface AudioController : NSArrayController
 
 @property NSMutableArray *audios;
-@property NSArray *allowedEncodings;
+@property (readonly) NSArray *allowedEncodings;
+@property (readonly) NSArray *allowedFileTypes;
 
 + (AudioController *) getInstance;
 

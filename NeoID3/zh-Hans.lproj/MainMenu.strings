@@ -1,0 +1,168 @@
+
+/* Class = "NSMenuItem"; title = "NeoID3"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "NeoID3";
+
+/* Class = "NSTextFieldCell"; title = "Track:"; ObjectID = "4Tz-el-vEh"; */
+"4Tz-el-vEh.title" = "音轨号:";
+
+/* Class = "NSMenuItem"; title = "Quit NeoID3"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "退出 NeoID3";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "编辑";
+
+/* Class = "NSMenuItem"; title = "About NeoID3"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "关于 NeoID3";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
+"6dh-zS-Vam.title" = "重做";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6nL-fP-Fr0"; */
+"6nL-fP-Fr0.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "7d8-np-Xs1"; */
+"7d8-np-Xs1.title" = "粘贴";
+
+/* Class = "NSMenuItem"; title = "Open Folders..."; ObjectID = "7x6-Bb-hfh"; */
+"7x6-Bb-hfh.title" = "打开文件夹...";
+
+/* Class = "NSTextFieldCell"; title = "Title:"; ObjectID = "8jt-pu-kdL"; */
+"8jt-pu-kdL.title" = "标题:";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSToolbarItem"; label = "Clear"; ObjectID = "B4U-Mn-O9J"; */
+"B4U-Mn-O9J.label" = "移除全部";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Clear"; ObjectID = "B4U-Mn-O9J"; */
+"B4U-Mn-O9J.paletteLabel" = "移除全部";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "配置…";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "关闭";
+
+/* Class = "NSToolbarItem"; label = "Open Folder"; ObjectID = "EeU-DK-dBB"; */
+"EeU-DK-dBB.label" = "打开文件夹";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Open Folder"; ObjectID = "EeU-DK-dBB"; */
+"EeU-DK-dBB.paletteLabel" = "打开文件夹";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "帮助";
+
+/* Class = "NSMenuItem"; title = "NeoID3 Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "NeoID3 帮助";
+
+/* Class = "NSToolbarItem"; label = "Open"; ObjectID = "Feo-of-Ef2"; */
+"Feo-of-Ef2.label" = "打开文件";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Open"; ObjectID = "Feo-of-Ef2"; */
+"Feo-of-Ef2.paletteLabel" = "打开文件";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "GNg-tH-Prp"; */
+"GNg-tH-Prp.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Open File…"; ObjectID = "IAo-SY-fd9"; */
+"IAo-SY-fd9.title" = "打开文件…";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "全部显示";
+
+/* Class = "NSTextFieldCell"; title = "Artist:"; ObjectID = "LQ0-me-eJA"; */
+"LQ0-me-eJA.title" = "艺术家:";
+
+/* Class = "NSTableColumn"; headerCell.title = "Encoding"; ObjectID = "Nuv-fh-tsr"; */
+"Nuv-fh-tsr.headerCell.title" = "编码";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "最小化";
+
+/* Class = "NSMenuItem"; title = "Hide NeoID3"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "隐藏 NeoID3";
+
+/* Class = "NSToolbarItem"; label = "Save"; ObjectID = "QVo-wl-yRe"; */
+"QVo-wl-yRe.label" = "保存";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Save"; ObjectID = "QVo-wl-yRe"; */
+"QVo-wl-yRe.paletteLabel" = "保存";
+
+/* Class = "NSWindow"; title = "NeoID3"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "NeoID3";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "缩放";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
+"Ruw-6m-B2m.title" = "全选";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "窗口";
+
+/* Class = "NSTextFieldCell"; title = "Comment:"; ObjectID = "UFl-S6-5dS"; */
+"UFl-S6-5dS.title" = "注释:";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "隐藏其他";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "Vht-2j-ufn"; */
+"Vht-2j-ufn.title" = "复制";
+
+/* Class = "NSTableColumn"; headerCell.title = "Artist"; ObjectID = "Vlm-5z-e3J"; */
+"Vlm-5z-e3J.headerCell.title" = "艺术家";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "编辑";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "W9e-MO-x33"; */
+"W9e-MO-x33.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Year:"; ObjectID = "ZHN-ca-6wg"; */
+"ZHN-ca-6wg.title" = "年份:";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "窗口";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "文件";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "文件";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
+"dRJ-4n-Yzg.title" = "撤销";
+
+/* Class = "NSPanel"; title = "ID3 Editor"; ObjectID = "dz6-06-XSi"; */
+"dz6-06-XSi.title" = "ID3 编辑器";
+
+/* Class = "NSTableColumn"; headerCell.title = "Album"; ObjectID = "ib6-yd-yLF"; */
+"ib6-yd-yLF.headerCell.title" = "专辑";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "nTv-Hf-WRF"; */
+"nTv-Hf-WRF.title" = "剪切";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
+"pa3-QI-u2k.title" = "删除";
+
+/* Class = "NSTableColumn"; headerCell.title = "Title"; ObjectID = "qI1-iD-y1q"; */
+"qI1-iD-y1q.headerCell.title" = "标题";
+
+/* Class = "NSMenu"; title = "NeoID3"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "NeoID3";
+
+/* Class = "NSTextFieldCell"; title = "Album:"; ObjectID = "vT3-nw-f4Q"; */
+"vT3-nw-f4Q.title" = "专辑:";
+
+/* Class = "NSToolbarItem"; label = "Remove"; ObjectID = "vsw-3z-rKw"; */
+"vsw-3z-rKw.label" = "移除";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Remove"; ObjectID = "vsw-3z-rKw"; */
+"vsw-3z-rKw.paletteLabel" = "移除";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "帮助";
+
+/* Class = "NSTextFieldCell"; title = "Encode:"; ObjectID = "zjS-GN-iCA"; */
+"zjS-GN-iCA.title" = "编码:";

@@ -15,18 +15,21 @@
 @interface TagLibWrapper : NSObject {
 	TagLib::FileRef *file;
 	TagLib::Tag *tag;
-	NSString *filepath;
 	NSString *originEncoding;
 }
 
+@property (retain) NSString *filepath;
+
 @property (retain) NSString *encoding;
-@property (retain) NSString *title;
-@property (retain) NSString *artist;
-@property (retain) NSString *album;
-@property (retain) NSString *genre;
-@property (retain) NSNumber *year;
-@property (retain) NSNumber *track;
-@property (retain) NSString *comment;
+@property (retain, nonatomic) NSString *title;
+@property (retain, nonatomic) NSString *artist;
+@property (retain, nonatomic) NSString *album;
+@property (retain, nonatomic) NSString *genre;
+@property (retain, nonatomic) NSNumber *year;
+@property (retain, nonatomic) NSNumber *track;
+@property (retain, nonatomic) NSString *comment;
+
+@property BOOL edited;
 
 + (id) wrapperWithPath:(NSString *)path;
 
@@ -34,10 +37,10 @@
 
 - (NSString *) detectEncoding;
 
+- (void) readFile;
 - (void) loadTags;
 - (void) saveTags:(BOOL)forceSave;
-
-- (NSString *) filepath;
+- (void) saveTags;
 
 - (void) setEncoding:(NSString *)encoding;
 

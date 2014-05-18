@@ -22,9 +22,9 @@
 	NSOpenPanel *panel = [NSOpenPanel openPanel];
 	[panel setAllowsMultipleSelection:YES];
 	[panel setCanChooseDirectories:NO];
-	[panel setAllowedFileTypes:[NSArray arrayWithObjects:@"mp3", @"aac", nil]];
-	
-	[panel beginWithCompletionHandler:^(NSInteger result) {
+	[panel setAllowedFileTypes:self.ac.allowedFileTypes];
+
+	[panel beginSheetModalForWindow:self.mainWindow completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton) {
 			NSArray *urls = [panel URLs];
 			
@@ -34,8 +34,10 @@
 			
 			for (NSURL *url in urls) {
 				TagLibWrapper *wrapper = [TagLibWrapper wrapperWithPath:[url path]];
-				[[self arrayController] addObject:wrapper];
-//				sleep(1);
+				if ([self.ac.audios indexOfObject:wrapper] == NSNotFound) {
+					[wrapper readFile];
+					[self.arrayController addObject:wrapper];
+				}
 			}
 			
 			[progressIndicator stopAnimation:self];
@@ -49,10 +51,10 @@
 	[panel setCanChooseDirectories:YES];
 	[panel setCanChooseFiles:NO];
 	
-	[panel beginWithCompletionHandler:^(NSInteger result) {
+	[panel beginSheetModalForWindow:self.mainWindow completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton) {
 			NSArray *urls = [panel URLs];
-			NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"mp3", @"aac", nil];
+			NSArray *allowedFileTypes = self.ac.allowedFileTypes;
 			NSFileManager *fileMngr = [NSFileManager defaultManager];
 			
 			NSProgressIndicator *progressIndicator = [self progressIndicator];
@@ -66,7 +68,10 @@
 				while (filename = [dirEnumerator nextObject]) {
 					if ([allowedFileTypes containsObject:[filename pathExtension]]) {
 						TagLibWrapper *wrapper = [TagLibWrapper wrapperWithPath:[NSString stringWithFormat:@"%@/%@", path, filename]];
-						[[self arrayController] addObject:wrapper];
+						if ([self.ac.audios indexOfObject:wrapper] == NSNotFound) {
+							[wrapper readFile];
+							[self.arrayController addObject:wrapper];
+						}
 					}
 				}
 			}
@@ -77,59 +82,54 @@
 }
 
 - (IBAction)removeFiles:(id)sender {
-	if ([[self audioTable] numberOfSelectedRows] == 0) {
+	if ([self.audioTable numberOfSelectedRows] == 0) {
 		return;
 	}
 	
-	NSIndexSet *selectedAudios = [[self audioTable] selectedRowIndexes];
-	[[self arrayController] removeObjectsAtArrangedObjectIndexes:selectedAudios];
+	NSIndexSet *selectedIndexes = [self.audioTable selectedRowIndexes];
+	[self.arrayController removeObjectsAtArrangedObjectIndexes:selectedIndexes];
+	[self.audioTable deselectAll:self];
 }
 
 - (IBAction)saveFiles:(id)sender {
-	NSMutableArray *audios = [[self arrayController] arrangedObjects];
+	NSIndexSet *selectedIndexes = [self.audioTable selectedRowIndexes];
+	if ([selectedIndexes count] == 0) {
+		return;
+	}
+	
+	NSArray *selectedAudios = [[self.arrayController arrangedObjects] objectsAtIndexes:selectedIndexes];
 	
 	NSProgressIndicator *progressIndicator = [self progressIndicator];
 	[progressIndicator setIndeterminate:NO];
 	[progressIndicator setDoubleValue:0];
-	[progressIndicator setMaxValue:[audios count]];
-//	[progressIndicator startAnimation:self];
-	int i = 0;
-	for (TagLibWrapper *wrapper in audios) {
-		[wrapper saveTags:YES];
-		NSLog(@"%@ saved.%d", [wrapper title], i++);
-//		sleep(1);
-		[[self arrayController] removeObject:wrapper];
+	[progressIndicator setMaxValue:[selectedAudios count]];
+
+	for (TagLibWrapper *wrapper in selectedAudios) {
+		[wrapper saveTags];
+		NSLog(@"%@ saved.", [wrapper title]);
+		[self.arrayController removeObject:wrapper];
 		[progressIndicator incrementBy:1];
 	}
+	
+	[self.audioTable deselectAll:self];
 }
 
-- (IBAction)testAction:(id)sender {
-	NSArray *seleted = [[self arrayController] selectedObjects];
-	if ([seleted count] == 0) {
-//		return;
-	}
-	NSInteger selectedRowNumber = [[self audioTable] selectedRow];
-	NSTableRowView *selectedRow = [[self audioTable] rowViewAtRow:selectedRowNumber makeIfNecessary:YES];
-	NSLog(@"%ld, %@", selectedRowNumber, [[selectedRow viewAtColumn:0] objectValue]);
-	[[self audioTable] enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
-//		NSLog(@"%ld, %@", row, [[[rowView viewAtColumn:0] dataCell] stringValue]);
-	}];
-	if ([[seleted[0] encoding] isEqualToString:@"UTF-8"]) {
-		[seleted[0] setEncoding:@"gb18030"];
-	}
-	else {
-		[seleted[0] setEncoding:@"UTF-8"];
-	}
-//	[self arrayController] 
+- (IBAction)clearFiles:(id)sender {
+	[self.arrayController removeObjects:[self.arrayController arrangedObjects]];
+}
+
+- (IBAction)showHelp:(id)sender {
+	NSURL *url = [NSURL URLWithString:@"http://www.nilennoct.com"];
+	[[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 - (void)editTags {
 	NSInteger selectedIndex = [self.audioTable selectedRow];
 	if (selectedIndex != -1) {
+		self.selectedWrapper = [[self.ac audios] objectAtIndex:selectedIndex];
 		if ( ! [self.editorPanel isVisible]) {
 			[self.editorPanel makeKeyAndOrderFront:self];
 		}
-		self.selectedWrapper = [[self.ac audios] objectAtIndex:selectedIndex];
 	}
 }
 

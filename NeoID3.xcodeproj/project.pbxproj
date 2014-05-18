@@ -58,10 +58,8 @@
 		B55382DE19230F7400CC9732 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B55382DF19230F7400CC9732 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B55382E219230F7400CC9732 /* NeoID3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NeoID3-Info.plist"; sourceTree = "<group>"; };
-		B55382E419230F7400CC9732 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B55382E619230F7400CC9732 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B55382E819230F7400CC9732 /* NeoID3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NeoID3-Prefix.pch"; sourceTree = "<group>"; };
-		B55382EA19230F7400CC9732 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		B55382EC19230F7400CC9732 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B55382ED19230F7400CC9732 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B55382F019230F7400CC9732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -77,6 +75,10 @@
 		B553831C192359C800CC9732 /* TagLibWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagLibWrapper.m; path = Class/Model/TagLibWrapper.m; sourceTree = "<group>"; };
 		B55679381923869B00A9C11D /* libuchardet.0.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libuchardet.0.0.0.dylib; path = /usr/local/Cellar/uchardet/0.0.1/lib/libuchardet.0.0.0.dylib; sourceTree = "<absolute>"; };
 		B556793D1923A91400A9C11D /* libtag.1.14.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtag.1.14.0.dylib; path = /usr/local/Cellar/taglib/1.9.1/lib/libtag.1.14.0.dylib; sourceTree = "<absolute>"; };
+		B570D1341927246B00C7CC05 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B570D136192726AD00C7CC05 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
+		B574CE691928922B009FACEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B574CE6A19289469009FACEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5DF82D11924763C000E43A2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Class/Controller/ViewController.h; sourceTree = "<group>"; };
 		B5DF82D21924763C000E43A2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Class/Controller/ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,6 +271,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = B55382CE19230F7400CC9732;
 			productRefGroup = B55382D819230F7400CC9732 /* Products */;
@@ -338,7 +341,7 @@
 		B55382E319230F7400CC9732 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B55382E419230F7400CC9732 /* en */,
+				B574CE6A19289469009FACEA /* Base */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -346,7 +349,7 @@
 		B55382E919230F7400CC9732 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B55382EA19230F7400CC9732 /* en */,
+				B574CE691928922B009FACEA /* Base */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B55382F019230F7400CC9732 /* Base */,
+				B570D136192726AD00C7CC05 /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -363,6 +367,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B553830219230F7500CC9732 /* en */,
+				B570D1341927246B00C7CC05 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
