@@ -222,6 +222,7 @@
 				B55382D419230F7400CC9732 /* Frameworks */,
 				B55382D519230F7400CC9732 /* Resources */,
 				B556793A192386C800A9C11D /* CopyFiles */,
+				B5E54DF71929D40600358F87 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -305,6 +306,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5E54DF71929D40600358F87 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "EXECUTABLE=\"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\ninstall_name_tool -change /usr/local/lib/libuchardet.0.dylib @loader_path/../Frameworks/libuchardet.0.0.0.dylib $EXECUTABLE;\ninstall_name_tool -change /usr/local/lib/libtag.1.dylib @loader_path/../Frameworks/libtag.1.14.0.dylib $EXECUTABLE;";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B55382D319230F7400CC9732 /* Sources */ = {
